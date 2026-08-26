@@ -1,0 +1,594 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #37352f;
+  --body-text-color: #37352f;
+  --text-cursor-color: var(--text-color);
+
+  --secondary-text-color: #787774;
+  --text-accent-color: #e9e9e7;
+  --bg-color-dark: #f7f6f3;
+
+  --text-highlight-color: #4f3b2a;
+  --text-highlight-bg: #feecc8;
+
+  --code-fence-text-color: #37352f;
+  --code-fence-bg-color: rgba(135, 131, 120, 0.15);
+  --code-block-bg: #f7f6f3;
+
+  --blockquote-bg-color: transparent;
+  --blockquote-accent-color: #37352f;
+  --blockquote-text-color: #37352f;
+
+  --light-trait-100: #37352f;
+  --light-trait-200: #37352f;
+  --light-trait-300: #37352f;
+  --light-trait-400: #787774;
+
+  --todo-bg-color: #2eaadc;
+  --todo-tick-color: #ffffff;
+
+  --search-select-bg-color: #edf3ec;
+  --search-select-text-color: #448361;
+  --search-hit-text-color: #d44c47;
+  --search-hit-bg-color: #fdebec;
+
+  /* Notion 默认保留下划线链接 */
+  --url-text-color: #37352f;
+  --url-underline-color: rgba(55, 53, 47, 0.4);
+
+  --table-primary-color: #ffffff;
+  --table-secondary-color: #f7f6f3;
+
+  --select-text-bg-color: rgba(35, 131, 226, 0.18);
+  --code-cursor-color: #37352f;
+
+  --side-bar-bg-color: #f7f6f3;
+  --side-bar-text-color: #37352f;
+  --item-hover-bg-color: #ebeae6;
+  --active-file-bg-color: #ebeae6;
+  --active-file-border-color: transparent;
+  --active-file-text-color: #37352f;
+  --footer-bg-color: var(--side-bar-bg-color);
+  --control-text-color: #555555;
+
+  --menu-bg: #ffffff;
+  --menu-text: #262626;
+  --menu-border: rgba(0, 0, 0, 0.12);
+  --menu-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --menu-item-hover: #f0f0f0;
+  --menu-divider: rgba(0, 0, 0, 0.08);
+
+  --font-size: 16px;
+  --font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  --monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --border-radius: 4px;
+
+  /* Mono 代码高亮 */
+  --cm-line: #37352f;
+  --cm-variable: #37352f;
+  --cm-keyword: #0969da;
+  --cm-tag: #0969da;
+  --cm-bracket: #787774;
+  --cm-error: #cf222e;
+  --cm-attribute: #0969da;
+  --cm-def: #6f42c1;
+  --cm-comment: #8c8c8c;
+  --cm-string: #0a3069;
+  --cm-operator: #0969da;
+  --cm-number: #0969da;
+  --cm-meta: #787774;
+  --cm-atom: #6f42c1;
+  --cm-builtin: #0969da;
+  --cm-property: #37352f;
+  --cm-variable-2: #0969da;
+  --cm-variable-3: #5c6166;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #191919;
+    --text-color: #e6edf3;
+    --body-text-color: rgba(255, 255, 255, 0.87);
+    --text-cursor-color: var(--text-color);
+
+    --secondary-text-color: #9b9a97;
+    --text-accent-color: #2f2f2f;
+    --bg-color-dark: #202020;
+
+    --text-highlight-color: #ffffff;
+    --text-highlight-bg: #5c3b1e;
+
+    --code-fence-text-color: rgba(255, 255, 255, 0.87);
+    --code-fence-bg-color: rgba(255, 255, 255, 0.08);
+    --code-block-bg: #202020;
+
+    --blockquote-bg-color: transparent;
+    --blockquote-accent-color: rgba(255, 255, 255, 0.87);
+    --blockquote-text-color: rgba(255, 255, 255, 0.87);
+
+    --light-trait-100: rgba(255, 255, 255, 0.95);
+    --light-trait-200: rgba(255, 255, 255, 0.9);
+    --light-trait-300: rgba(255, 255, 255, 0.85);
+    --light-trait-400: #9b9a97;
+
+    --todo-bg-color: #2eaadc;
+    --todo-tick-color: #ffffff;
+
+    --search-select-bg-color: #233b2f;
+    --search-select-text-color: #85e0a3;
+    --search-hit-text-color: #f77b75;
+    --search-hit-bg-color: #4d2323;
+
+    --url-text-color: rgba(255, 255, 255, 0.87);
+    --url-underline-color: rgba(255, 255, 255, 0.4);
+
+    --table-primary-color: #191919;
+    --table-secondary-color: #202020;
+
+    --select-text-bg-color: rgba(35, 131, 226, 0.28);
+    --code-cursor-color: rgba(255, 255, 255, 0.87);
+
+    --side-bar-bg-color: #1e1e1e;
+    --side-bar-text-color: #e6edf3;
+    --control-text-color: #cccccc;
+    --item-hover-bg-color: rgba(255, 255, 255, 0.08);
+    --active-file-bg-color: #2a2a2a;
+    --active-file-border-color: transparent;
+    --active-file-text-color: #ffffff;
+    --footer-bg-color: var(--side-bar-bg-color);
+
+    --menu-bg: #252526;
+    --menu-text: #e6edf3;
+    --menu-border: rgba(255, 255, 255, 0.12);
+    --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --menu-item-hover: rgba(255, 255, 255, 0.08);
+    --menu-divider: rgba(255, 255, 255, 0.08);
+
+    --cm-line: rgba(255, 255, 255, 0.87);
+    --cm-variable: rgba(255, 255, 255, 0.87);
+    --cm-keyword: #58a6ff;
+    --cm-tag: #58a6ff;
+    --cm-bracket: #8b949e;
+    --cm-error: #ff7b72;
+    --cm-attribute: #79c0ff;
+    --cm-def: #d2a8ff;
+    --cm-comment: #6e7681;
+    --cm-string: #a5d6ff;
+    --cm-operator: #58a6ff;
+    --cm-number: #58a6ff;
+    --cm-meta: #8b949e;
+    --cm-atom: #d2a8ff;
+    --cm-builtin: #58a6ff;
+    --cm-property: rgba(255, 255, 255, 0.87);
+    --cm-variable-2: #79c0ff;
+    --cm-variable-3: #58a6ff;
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  color: var(--body-text-color);
+  background-color: var(--bg-color);
+  line-height: 1.65;
+  letter-spacing: -0.003em;
+}
+
+#write {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px 40px 120px;
+}
+
+@media only screen and (min-width: 1400px) {
+  #write { max-width: 980px; }
+}
+
+@media only screen and (min-width: 1800px) {
+  #write { max-width: 1160px; }
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+  margin-top: 24px;
+}
+
+/* ==========================================================================
+   正文超链接：严格在 #write 内默认带 Notion 柔和底边下划线
+   ========================================================================== */
+#write a,
+#write span[md-inline='link'] a,
+#write .md-link a,
+#write .md-def-url {
+  color: var(--url-text-color) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid var(--url-underline-color) !important;
+  cursor: pointer;
+  transition: opacity 0.15s ease-in-out;
+}
+
+#write a:hover,
+#write span[md-inline='link']:hover a,
+#write .md-link:hover a,
+#write .md-def-url:hover {
+  text-decoration: none !important;
+  opacity: 0.75;
+}
+
+#write a:empty { border: none !important; }
+#write a.md-toc-inner { border-bottom: none !important; }
+
+/* 标题系统 */
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  font-weight: 600;
+  line-height: 1.3;
+  cursor: text;
+}
+
+h1 {
+  font-size: 1.875rem;
+  letter-spacing: -0.02em;
+  margin-top: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--light-trait-100);
+}
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.015em;
+  margin-top: 1.8rem;
+  margin-bottom: 0.4rem;
+  color: var(--light-trait-200);
+}
+
+h3 {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: var(--light-trait-300);
+}
+
+h4 { font-size: 1.1rem; margin-top: 1.2rem; color: var(--light-trait-400); }
+h5 { font-size: 1rem; margin-top: 1.1rem; color: var(--light-trait-400); }
+h6 { font-size: 0.95rem; margin-top: 1rem; color: var(--light-trait-400); }
+
+p, blockquote, ul, ol, dl, table {
+  margin: 0.5em 0;
+}
+
+li > ol, li > ul {
+  margin: 0;
+}
+
+hr {
+  background-color: var(--text-accent-color);
+  height: 1px;
+  border: none;
+  margin: 28px 0;
+}
+
+blockquote {
+  color: var(--blockquote-text-color);
+  margin: 0.8em 0;
+  border-left: 3px solid var(--blockquote-accent-color);
+  padding: 0.2em 0.9em;
+  background-color: var(--blockquote-bg-color);
+  font-size: 1em;
+}
+
+blockquote blockquote {
+  padding-right: 0;
+}
+
+table {
+  padding: 0;
+  word-break: initial;
+  margin: 1.2em 0;
+}
+
+table tr {
+  border-top: 1px solid var(--text-accent-color);
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n) { background-color: var(--table-primary-color); }
+table tr:nth-child(2n + 1) { background-color: var(--table-secondary-color); }
+
+table tr th {
+  font-weight: 600;
+  border: 1px solid var(--text-accent-color);
+  background-color: var(--bg-color-dark);
+  padding: 6px 12px;
+}
+
+table tr td {
+  border: 1px solid var(--text-accent-color);
+  padding: 6px 12px;
+}
+
+code, tt {
+  font-family: var(--monospace) !important;
+  color: var(--code-fence-text-color);
+  background-color: var(--code-fence-bg-color);
+  border-radius: var(--border-radius);
+  padding: 0.2em 0.4em 0.15em;
+  font-size: 0.86em;
+  vertical-align: 0.5px;
+}
+
+.md-fences {
+  margin: 1.2em 0;
+  padding: 14px 16px 10px;
+  font-family: var(--monospace) !important;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  background-color: var(--code-block-bg) !important;
+  border-radius: 6px;
+  border: 1px solid var(--text-accent-color);
+}
+
+#write pre.md-meta-block {
+  padding: 1rem;
+  font-size: 85%;
+  background-color: var(--bg-color-dark);
+  border-radius: var(--border-radius);
+  color: var(--secondary-text-color);
+  margin-top: 0 !important;
+}
+
+#write .md-task-list-item > input {
+  -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  margin-left: -1.45rem;
+  margin-top: 0.25rem;
+  height: 1rem;
+  width: 1rem;
+  border: 1.5px solid var(--secondary-text-color);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+#write .md-task-list-item > input[checked] {
+  background: var(--todo-bg-color);
+  border-color: var(--todo-bg-color);
+}
+
+#write .md-task-list-item > input[checked]::before {
+  content: '✓';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   隐藏 .assets 规则（全层级穿透）
+   ========================================================================== */
+.file-tree-node[data-name=".assets"],
+.file-tree-node[data-name^="."],
+.file-tree-node[data-path*="/.assets"],
+.file-tree-node[data-path*="\\.assets"],
+.file-list-item[data-name=".assets"],
+.file-list-item[data-name^="."],
+.file-list-item[data-path*="/.assets"],
+.file-list-item[data-path*="\\.assets"],
+.file-library-node[data-path*="/.assets"],
+.file-library-node[data-path*="\\.assets"],
+[data-name=".assets"] {
+  display: none !important;
+}
+
+::selection {
+  background-color: var(--select-text-bg-color) !important;
+}
+
+mark, .ty-file-search-match-text, .md-search-hit {
+  background: var(--search-hit-bg-color);
+  color: var(--search-hit-text-color);
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+/* ==========================================================================
+   侧边栏、大纲与操作菜单 (最新规范)
+   ========================================================================== */
+.sidebar-tabs,
+.info-panel-tab-wrapper {
+  border-bottom: none !important;
+}
+
+.mac-seamless-mode #typora-sidebar {
+  color: var(--side-bar-text-color);
+  background-color: var(--side-bar-bg-color);
+}
+
+.sidebar-tab-btn,
+.sidebar-tab-btn .btn-default,
+.sidebar-tab-btn span,
+#sidebar-files-menu-btn,
+.sidebar-header-btn {
+  color: var(--control-text-color) !important;
+}
+
+.outline-content {
+  padding: 4px 12px;
+}
+
+.outline-item {
+  color: var(--control-text-color) !important;
+}
+
+.outline-item:hover {
+  background-color: var(--item-hover-bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+.outline-item.outline-item-active {
+  background-color: var(--active-file-bg-color) !important;
+  color: var(--active-file-text-color) !important;
+}
+
+.sidebar-null-outline-info {
+  color: var(--control-text-color) !important;
+  font-size: 13px;
+  text-align: center;
+}
+
+#sidebar-files-menu,
+.dropdown-menu,
+.context-menu {
+  background-color: var(--menu-bg) !important;
+  border: 1px solid var(--menu-border) !important;
+  box-shadow: var(--menu-shadow) !important;
+  border-radius: 8px !important;
+}
+
+#sidebar-files-menu,
+#sidebar-files-menu *,
+.dropdown-menu,
+.dropdown-menu *,
+.context-menu,
+.context-menu * {
+  color: var(--menu-text) !important;
+}
+
+#sidebar-files-menu li,
+#sidebar-files-menu li a,
+.dropdown-menu li,
+.dropdown-menu li a,
+.context-menu li,
+.context-menu li a {
+  text-decoration: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+#sidebar-files-menu li a:hover,
+#sidebar-files-menu li:hover,
+.dropdown-menu li a:hover,
+.dropdown-menu li:hover,
+.context-menu li a:hover,
+.context-menu li:hover {
+  background-color: var(--menu-item-hover) !important;
+}
+
+.dropdown-menu .divider,
+#sidebar-files-menu .divider {
+  height: 1px !important;
+  background-color: var(--menu-divider) !important;
+  border: none !important;
+}
+
+.file-tree-node.active > .file-node-background {
+  background-color: var(--active-file-bg-color);
+  border-left: 4px solid var(--active-file-border-color);
+}
+
+.file-list-item.active {
+  background-color: var(--active-file-bg-color);
+  color: var(--active-file-text-color);
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--menu-divider) !important;
+  background: transparent !important;
+}
+
+#sidebar-files-menu-btn,
+.sidebar-footer-item,
+#recent-file-panel-action-btn,
+.sidebar-footer-btn,
+.footer-btn {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--control-text-color) !important;
+}
+
+#sidebar-files-menu-btn:hover,
+.sidebar-footer-item:hover,
+#recent-file-panel-action-btn:hover,
+.sidebar-footer-btn:hover {
+  background-color: var(--item-hover-bg-color) !important;
+}
+
+/* CodeMirror 语法高亮 */
+pre.CodeMirror-line { color: var(--cm-line) !important; }
+.cm-variable { color: var(--cm-variable) !important; }
+.cm-keyword { color: var(--cm-keyword) !important; font-weight: 500; }
+.cm-tag { color: var(--cm-tag) !important; }
+.cm-variable-3 { color: var(--cm-variable-3) !important; }
+.cm-bracket { color: var(--cm-bracket); }
+.cm-error { color: var(--cm-error) !important; }
+.cm-attribute { color: var(--cm-attribute) !important; }
+.cm-def { color: var(--cm-def) !important; }
+.cm-comment { color: var(--cm-comment) !important; font-style: italic; }
+.cm-string { color: var(--cm-string) !important; }
+.cm-operator { color: var(--cm-operator) !important; }
+.cm-number { color: var(--cm-number) !important; }
+.cm-meta { color: var(--cm-meta) !important; }
+.cm-atom { color: var(--cm-atom) !important; }
+.cm-builtin { color: var(--cm-builtin) !important; }
+.cm-property { color: var(--cm-property) !important; }
+.cm-variable-2 { color: var(--cm-variable-2) !important; }
+
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 2px solid var(--text-cursor-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sidebar-tabs,
+  .sidebar-tabs *,
+  .outline-item,
+  .outline-item *,
+  .sidebar-tab-btn,
+  .sidebar-tab-btn * {
+    color: #cccccc !important;
+  }
+
+  .outline-item:hover,
+  .outline-item:hover * {
+    color: #ffffff !important;
+  }
+
+  .outline-item.outline-item-active,
+  .outline-item.outline-item-active * {
+    color: #ffffff !important;
+  }
+
+  .sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: transparent !important;
+  }
+
+  #sidebar-files-menu-btn,
+  .sidebar-footer-item,
+  #recent-file-panel-action-btn,
+  .sidebar-footer-btn,
+  .footer-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #cccccc !important;
+  }
+
+  #sidebar-files-menu-btn:hover,
+  .sidebar-footer-item:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+  }
+}

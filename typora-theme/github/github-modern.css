@@ -1,0 +1,652 @@
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #555555;
+    --link-color: #4183C4;
+    --active-file-bg-color: #f0f0f0;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #777777;
+    --item-hover-bg-color: #eaeef2;
+
+    --menu-bg: #ffffff;
+    --menu-text: #262626;
+    --menu-border: rgba(0, 0, 0, 0.12);
+    --menu-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --menu-item-hover: #f0f0f0;
+    --menu-divider: rgba(0, 0, 0, 0.08);
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('./github/open-sans-v17-latin-ext_latin-regular.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* open-sans-italic - latin-ext_latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Open Sans Italic'), local('OpenSans-Italic'), url('./github/open-sans-v17-latin-ext_latin-italic.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* open-sans-700 - latin-ext_latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url('./github/open-sans-v17-latin-ext_latin-700.woff2') format('woff2'); 
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* open-sans-700italic - latin-ext_latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url('./github/open-sans-v17-latin-ext_latin-700italic.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', 'SF Pro', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write { max-width: 1024px; }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write { max-width: 1200px; }
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 30px;
+}
+
+/* ==========================================================================
+   正文超链接：严格限定在 #write 区域，平时无下划线，悬停触发单下划线
+   ========================================================================== */
+#write a,
+#write span[md-inline='link'] a,
+#write .md-link a {
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+#write a:hover,
+#write span[md-inline='link']:hover a,
+#write .md-link:hover a {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+    border-bottom: none !important;
+}
+
+#write a:empty {
+    border: none !important;
+}
+
+#write a.md-toc-inner {
+    color: inherit !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+#write a.md-toc-inner:hover {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code,
+h2 tt,
+h2 code,
+h3 tt,
+h3 code,
+h4 tt,
+h4 code,
+h5 tt,
+h5 code,
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    background-color: #f8f8f8;
+}
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{ left: -1.5625rem; top: .375rem; }
+#write>h4.md-focus:before{ left: -1.5625rem; top: .285714286rem; }
+#write>h5.md-focus:before{ left: -1.5625rem; top: .285714286rem; }
+#write>h6.md-focus:before{ left: -1.5625rem; top: .285714286rem; }
+
+.md-image>.md-meta {
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+/* ==========================================================================
+   侧边栏与大纲面板全局规范
+   ========================================================================== */
+.sidebar-tabs,
+.info-panel-tab-wrapper {
+    border-bottom: none !important;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+    color: var(--text-color);
+}
+
+/* 侧边栏顶栏标题与图标颜色 */
+.sidebar-tab-btn,
+.sidebar-tab-btn .btn-default,
+.sidebar-tab-btn span,
+#sidebar-files-menu-btn,
+.sidebar-header-btn {
+    color: var(--control-text-color) !important;
+}
+
+/* 大纲面板高亮与交互 */
+.outline-content {
+    padding: 4px 12px;
+}
+
+.outline-item {
+    color: var(--control-text-color) !important;
+}
+
+.outline-item:hover {
+    background-color: var(--item-hover-bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.outline-item.outline-item-active {
+    background-color: var(--active-file-bg-color) !important;
+    color: var(--active-file-text-color) !important;
+}
+
+.sidebar-null-outline-info {
+    color: var(--control-text-color) !important;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* 操作栏弹出菜单容器 */
+#sidebar-files-menu,
+.dropdown-menu,
+.context-menu {
+    background-color: var(--menu-bg) !important;
+    border: 1px solid var(--menu-border) !important;
+    box-shadow: var(--menu-shadow) !important;
+    border-radius: 8px !important;
+}
+
+#sidebar-files-menu,
+#sidebar-files-menu *,
+.dropdown-menu,
+.dropdown-menu *,
+.context-menu,
+.context-menu * {
+    color: var(--menu-text) !important;
+}
+
+#sidebar-files-menu li,
+#sidebar-files-menu li a,
+.dropdown-menu li,
+.dropdown-menu li a,
+.context-menu li,
+.context-menu li a {
+    text-decoration: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+#sidebar-files-menu li a:hover,
+#sidebar-files-menu li:hover,
+.dropdown-menu li a:hover,
+.dropdown-menu li:hover,
+.context-menu li a:hover,
+.context-menu li:hover {
+    background-color: var(--menu-item-hover) !important;
+}
+
+.dropdown-menu .divider,
+#sidebar-files-menu .divider {
+    height: 1px !important;
+    background-color: var(--menu-divider) !important;
+    border: none !important;
+}
+
+/* 侧边栏文件激活态 */
+.file-tree-node.active > .file-node-background {
+    background-color: var(--active-file-bg-color);
+    border-left: 4px solid var(--active-file-border-color);
+}
+
+.file-list-item.active {
+    background-color: var(--active-file-bg-color);
+    color: var(--active-file-text-color);
+}
+
+/* 侧边栏底栏与触发按钮 (彻底消除突兀黑灰框) */
+.sidebar-footer {
+    border-top: 1px solid var(--menu-divider) !important;
+    background: transparent !important;
+}
+
+#sidebar-files-menu-btn,
+.sidebar-footer-item,
+#recent-file-panel-action-btn,
+.sidebar-footer-btn,
+.footer-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: var(--control-text-color) !important;
+}
+
+#sidebar-files-menu-btn:hover,
+.sidebar-footer-item:hover,
+#recent-file-panel-action-btn:hover,
+.sidebar-footer-btn:hover {
+    background-color: var(--item-hover-bg-color) !important;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer {
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-os #write {
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+/* ==========================================================================
+   隐藏 .assets 规则（全层级穿透，精准隐藏）
+   ========================================================================== */
+.file-tree-node[data-name=".assets"],
+.file-tree-node[data-name^="."],
+.file-tree-node[data-path*="/.assets"],
+.file-tree-node[data-path*="\\.assets"],
+.file-list-item[data-name=".assets"],
+.file-list-item[data-name^="."],
+.file-list-item[data-path*="/.assets"],
+.file-list-item[data-path*="\\.assets"],
+.file-library-node[data-path*="/.assets"],
+.file-library-node[data-path*="\\.assets"],
+[data-name=".assets"] {
+    display: none !important;
+}
+
+/* ==========================================================================
+   自动暗黑模式支持 (彻底修复顶栏、大纲文字过黑与底栏按钮框)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --side-bar-bg-color: #1e1e1e;
+        --control-text-color: #cccccc;
+        --text-color: #e6edf3;
+        --link-color: #2f81f7;
+        --active-file-bg-color: #2a2a2a;
+        --active-file-text-color: #ffffff;
+        --active-file-border-color: #424242;
+        --item-hover-bg-color: rgba(255, 255, 255, 0.08);
+
+        --menu-bg: #252526;
+        --menu-text: #e6edf3;
+        --menu-border: rgba(255, 255, 255, 0.12);
+        --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        --menu-item-hover: rgba(255, 255, 255, 0.08);
+        --menu-divider: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+        color: #d0d0d0;
+        background-color: #191919;
+    }
+
+    /* 保证大纲、顶栏文字在暗黑模式下清晰可见 */
+    .sidebar-tabs,
+    .sidebar-tabs *,
+    .outline-item,
+    .outline-item *,
+    .sidebar-tab-btn,
+    .sidebar-tab-btn * {
+        color: #cccccc !important;
+    }
+
+    .outline-item:hover,
+    .outline-item:hover * {
+        color: #ffffff !important;
+    }
+
+    .outline-item.outline-item-active,
+    .outline-item.outline-item-active * {
+        color: #ffffff !important;
+    }
+
+    /* 底栏按钮完全无黑框 */
+    .sidebar-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: transparent !important;
+    }
+
+    #sidebar-files-menu-btn,
+    .sidebar-footer-item,
+    #recent-file-panel-action-btn,
+    .sidebar-footer-btn,
+    .footer-btn {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        color: #cccccc !important;
+    }
+
+    #sidebar-files-menu-btn:hover,
+    .sidebar-footer-item:hover {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+    }
+
+    h1 { border-bottom: 1px solid #30363d; }
+    h2 { border-bottom: 1px solid #30363d; }
+    h6 { color: #8b949e; }
+    hr { background-color: #30363d; }
+    blockquote { border-left: 4px solid #30363d; color: #8b949e; }
+
+    table tr { border-top: 1px solid #30363d; }
+    table tr:nth-child(2n), thead { background-color: #161b22; }
+    table th, table td { border: 1px solid #30363d; }
+
+    .md-fences, code, tt {
+        border: 1px solid #30363d;
+        background-color: rgba(110, 118, 129, 0.4);
+    }
+    .md-fences {
+        background-color: #161b22;
+    }
+
+    #write pre.md-meta-block {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        color: #8b949e;
+    }
+
+    #typora-quick-open {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+    }
+
+    #typora-quick-open-item {
+        background-color: #21262d;
+        border-color: #30363d;
+    }
+
+    .ty-preferences .window-content {
+        background-color: #161b22;
+    }
+}
