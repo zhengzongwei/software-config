@@ -1,0 +1,615 @@
+:root {
+    /* ==========================================================================
+     1. VS Code Light Modern (浅色体系)
+     ========================================================================== */
+    --bg-color: #ffffff;
+    --text-color: #1f1f1f;
+    --text-muted: #616161;
+    --border-color: #e5e5e5;
+    --border-subtle: #f0f0f0;
+    --hr-color: #e5e5e5;
+
+    /* VS Code 经典主色 */
+    --vscode-blue: #005fb8;
+    --link-color: #005fb8;
+
+    /* 代码块与表格 */
+    --code-bg: #f8f8f8;
+    --code-inline-bg: rgba(27, 31, 35, 0.05);
+    --code-inline-text: #1f1f1f;
+    --table-alt-bg: #f8f8f8;
+    --select-text-bg-color: #add6ff;
+
+    /* 侧边栏与激活项 (VS Code 真实全包围矩形框规范) */
+    --side-bar-bg-color: #f8f8f8;
+    --side-bar-text-color: #616161;
+    --control-text-color: #555555;
+    --item-hover-bg-color: #e8e8e8;
+    --active-file-bg-color: #e4e6f1;
+    --active-file-border-color: #005fb8;
+    --active-file-text-color: #1f1f1f;
+
+    --menu-bg: #ffffff;
+    --menu-text: #1f1f1f;
+    --menu-border: rgba(0, 0, 0, 0.12);
+    --menu-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --menu-item-hover: #f0f0f0;
+    --menu-divider: rgba(0, 0, 0, 0.08);
+
+    /* VS Code Light 语法高亮 */
+    --cm-line: #1f1f1f;
+    --cm-keyword: #0000ff;
+    --cm-operator: #000000;
+    --cm-variable: #001080;
+    --cm-variable-2: #0070c1;
+    --cm-def: #795e26;
+    --cm-string: #a31515;
+    --cm-comment: #008000;
+    --cm-tag: #800000;
+    --cm-builtin: #267f99;
+    --cm-number: #098658;
+    --cm-cursor: #005fb8;
+
+    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji";
+    --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* ==========================================================================
+       VS Code Dark Modern (深色体系)
+       ========================================================================== */
+        --bg-color: #1f1f1f;
+        --text-color: #cccccc;
+        --text-muted: #8c8c8c;
+        --border-color: #2b2b2b;
+        --border-subtle: #383838;
+        --hr-color: #2b2b2b;
+
+        --vscode-blue: #3794ff;
+        --link-color: #3794ff;
+
+        --code-bg: #181818;
+        --code-inline-bg: rgba(255, 255, 255, 0.08);
+        --code-inline-text: #cccccc;
+        --table-alt-bg: #181818;
+        --select-text-bg-color: #264f78;
+
+        /* 侧边栏与激活项 (Dark Modern) */
+        --side-bar-bg-color: #181818;
+        --side-bar-text-color: #cccccc;
+        --control-text-color: #cccccc;
+        --item-hover-bg-color: rgba(255, 255, 255, 0.08);
+        --active-file-bg-color: #37373d;
+        --active-file-border-color: #0078d4;
+        --active-file-text-color: #ffffff;
+
+        --menu-bg: #252526;
+        --menu-text: #cccccc;
+        --menu-border: rgba(255, 255, 255, 0.12);
+        --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        --menu-item-hover: rgba(255, 255, 255, 0.08);
+        --menu-divider: rgba(255, 255, 255, 0.08);
+
+        /* VS Code Dark 语法高亮 */
+        --cm-line: #cccccc;
+        --cm-keyword: #569cd6;
+        --cm-operator: #d4d4d4;
+        --cm-variable: #9cdcfe;
+        --cm-variable-2: #4fc1ff;
+        --cm-def: #dcdcaa;
+        --cm-string: #ce9178;
+        --cm-comment: #6a9955;
+        --cm-tag: #569cd6;
+        --cm-builtin: #4ec9b0;
+        --cm-number: #b5cea8;
+        --cm-cursor: #aeafad;
+    }
+}
+
+/* ==========================================================================
+   2. 基础正文排版
+   ========================================================================== */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 40px 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 1200px;
+    }
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+/* ==========================================================================
+   3. 正文超链接
+   ========================================================================== */
+#write a,
+#write span[md-inline='link'] a,
+#write .md-link a {
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+#write a:hover,
+#write span[md-inline='link']:hover a,
+#write .md-link:hover a {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+    border-bottom: none !important;
+}
+
+#write a:empty {
+    border: none !important;
+}
+
+#write a.md-toc-inner {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+#write a.md-toc-inner:hover {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   4. 标题体系
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-color);
+    cursor: text;
+}
+
+h1 {
+    font-size: 2rem;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. 段落、引用块、表格与代码块
+   ========================================================================== */
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding-left: 28px;
+}
+
+hr {
+    height: 1px;
+    margin: 24px 0;
+    background-color: var(--hr-color);
+    border: none;
+}
+
+blockquote {
+    border-left: 3px solid var(--vscode-blue);
+    padding: 4px 16px;
+    color: var(--text-muted);
+    background-color: var(--code-bg);
+    border-radius: 0 4px 4px 0;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+table tr {
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: var(--table-alt-bg);
+}
+
+table th,
+table td {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+}
+
+table th {
+    font-weight: 600;
+}
+
+/* 行内代码 */
+code,
+tt {
+    font-family: var(--font-monospace) !important;
+    font-size: 0.88em;
+    padding: 2px 5px;
+    color: var(--code-inline-text);
+    background-color: var(--code-inline-bg);
+    border-radius: 4px;
+}
+
+/* 代码块容器 */
+.md-fences {
+    margin: 16px 0;
+    padding: 10px 14px;
+    font-family: var(--font-monospace) !important;
+    font-size: 0.9em;
+    line-height: 1.5;
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+/* ==========================================================================
+   6. 侧边栏与激活项 (VS Code 原生包围矩形框设计)
+   ========================================================================== */
+.sidebar-tabs,
+.info-panel-tab-wrapper {
+    border-bottom: none !important;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+    color: var(--side-bar-text-color);
+}
+
+.sidebar-tab-btn,
+.sidebar-tab-btn .btn-default,
+.sidebar-tab-btn span,
+#sidebar-files-menu-btn,
+.sidebar-header-btn {
+    color: var(--control-text-color) !important;
+}
+
+.outline-content {
+    padding: 4px 12px;
+}
+
+.outline-item {
+    color: var(--control-text-color) !important;
+    border-radius: 4px !important;
+}
+
+.outline-item:hover {
+    background-color: var(--item-hover-bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.outline-item.outline-item-active {
+    background-color: var(--active-file-bg-color) !important;
+    border: 1px solid var(--active-file-border-color) !important;
+    color: var(--active-file-text-color) !important;
+}
+
+.sidebar-null-outline-info {
+    color: var(--control-text-color) !important;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* 侧边栏文件行基础结构与悬停 */
+.file-tree-node>.file-node-background,
+.file-list-item {
+    border-radius: 4px !important;
+    margin: 1px 4px !important;
+    box-sizing: border-box !important;
+    border: 1px solid transparent !important;
+}
+
+.file-tree-node:hover>.file-node-background,
+.file-list-item:hover {
+    background-color: var(--item-hover-bg-color) !important;
+}
+
+/* VS Code 标志性激活态：全包围外框 + 微浅灰底色 */
+.file-tree-node.active>.file-node-background,
+.file-list-item.active {
+    background-color: var(--active-file-bg-color) !important;
+    border: 1px solid var(--active-file-border-color) !important;
+    border-left: 1px solid var(--active-file-border-color) !important;
+}
+
+.file-tree-node.active>.file-node-content,
+.file-tree-node.active>.file-node-content *,
+.file-list-item.active,
+.file-list-item.active * {
+    color: var(--active-file-text-color) !important;
+}
+
+/* 操作栏弹出菜单容器 */
+#sidebar-files-menu,
+.dropdown-menu,
+.context-menu {
+    background-color: var(--menu-bg) !important;
+    border: 1px solid var(--menu-border) !important;
+    box-shadow: var(--menu-shadow) !important;
+    border-radius: 8px !important;
+}
+
+#sidebar-files-menu,
+#sidebar-files-menu *,
+.dropdown-menu,
+.dropdown-menu *,
+.context-menu,
+.context-menu * {
+    color: var(--menu-text) !important;
+}
+
+#sidebar-files-menu li,
+#sidebar-files-menu li a,
+.dropdown-menu li,
+.dropdown-menu li a,
+.context-menu li,
+.context-menu li a {
+    text-decoration: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+#sidebar-files-menu li a:hover,
+#sidebar-files-menu li:hover,
+.dropdown-menu li a:hover,
+.dropdown-menu li:hover,
+.context-menu li a:hover,
+.context-menu li:hover {
+    background-color: var(--menu-item-hover) !important;
+}
+
+.dropdown-menu .divider,
+#sidebar-files-menu .divider {
+    height: 1px !important;
+    background-color: var(--menu-divider) !important;
+    border: none !important;
+}
+
+/* 侧边栏底栏与触发按钮 */
+.sidebar-footer {
+    border-top: 1px solid var(--menu-divider) !important;
+    background: transparent !important;
+}
+
+#sidebar-files-menu-btn,
+.sidebar-footer-item,
+#recent-file-panel-action-btn,
+.sidebar-footer-btn,
+.footer-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: var(--control-text-color) !important;
+}
+
+#sidebar-files-menu-btn:hover,
+.sidebar-footer-item:hover,
+#recent-file-panel-action-btn:hover,
+.sidebar-footer-btn:hover {
+    background-color: var(--item-hover-bg-color) !important;
+}
+
+#typora-quick-open {
+    border: 1px solid var(--border-color);
+    background-color: var(--code-bg);
+}
+
+/* ==========================================================================
+   7. 安全穿透隐藏 .assets 节点
+   ========================================================================== */
+.file-tree-node[data-name=".assets"],
+.file-tree-node[data-name^="."],
+.file-tree-node[data-path*="/.assets"],
+.file-tree-node[data-path*="\\.assets"],
+.file-list-item[data-name=".assets"],
+.file-list-item[data-name^="."],
+.file-list-item[data-path*="/.assets"],
+.file-list-item[data-path*="\\.assets"],
+.file-library-node[data-path*="/.assets"],
+.file-library-node[data-path*="\\.assets"],
+[data-name=".assets"] {
+    display: none !important;
+}
+
+::selection {
+    background-color: var(--select-text-bg-color) !important;
+}
+
+/* ==========================================================================
+   8. 语法高亮
+   ========================================================================== */
+pre.CodeMirror-line {
+    color: var(--cm-line) !important;
+}
+
+.cm-keyword {
+    color: var(--cm-keyword) !important;
+}
+
+.cm-operator {
+    color: var(--cm-operator) !important;
+}
+
+.cm-variable {
+    color: var(--cm-variable) !important;
+}
+
+.cm-variable-2 {
+    color: var(--cm-variable-2) !important;
+}
+
+.cm-def {
+    color: var(--cm-def) !important;
+}
+
+.cm-string {
+    color: var(--cm-string) !important;
+}
+
+.cm-comment {
+    color: var(--cm-comment) !important;
+    font-style: italic;
+}
+
+.cm-tag {
+    color: var(--cm-tag) !important;
+}
+
+.cm-builtin {
+    color: var(--cm-builtin) !important;
+}
+
+.cm-number {
+    color: var(--cm-number) !important;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 2px solid var(--cm-cursor);
+}
+
+/* ==========================================================================
+   9. 暗黑模式穿透规则
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+
+    .sidebar-tabs,
+    .sidebar-tabs *,
+    .outline-item,
+    .outline-item *,
+    .sidebar-tab-btn,
+    .sidebar-tab-btn * {
+        color: #cccccc !important;
+    }
+
+    .outline-item:hover,
+    .outline-item:hover * {
+        color: #ffffff !important;
+    }
+
+    .outline-item.outline-item-active,
+    .outline-item.outline-item-active * {
+        color: #ffffff !important;
+    }
+
+    .sidebar-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: transparent !important;
+    }
+
+    #sidebar-files-menu-btn,
+    .sidebar-footer-item,
+    #recent-file-panel-action-btn,
+    .sidebar-footer-btn,
+    .footer-btn {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        color: #cccccc !important;
+    }
+
+    #sidebar-files-menu-btn:hover,
+    .sidebar-footer-item:hover {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+    }
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}

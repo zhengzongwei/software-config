@@ -1,0 +1,678 @@
+:root {
+    /* ==========================================================================
+     1. VS Code 现代架构 + Pie 绯红核心色彩体系
+     ========================================================================== */
+    --bg-color: #ffffff;
+    --text-color: #2b2b2b;
+    --text-muted: #6e6e6e;
+    --border-color: #e5e5e5;
+    --border-subtle: #f0f0f0;
+    --hr-color: #f0e6e6;
+
+    /* Pie 标志性绯红/珊瑚色阶 */
+    --pie-main-1: #da282a;
+    --pie-main-2: #e6514e;
+    --pie-main-3: #f27f79;
+    --link-color: #da282a;
+
+    /* Pie 编辑区组件 */
+    --code-bg: #faf7f7;
+    --code-inline-bg: rgba(218, 40, 42, 0.08);
+    --code-inline-text: #c72527;
+    --table-alt-bg: #fdfafa;
+    --blockquote-bg: rgba(218, 40, 42, 0.03);
+    --select-text-bg-color: rgba(218, 40, 42, 0.18);
+
+    /* 侧边栏与操作栏菜单 (Light Modern) */
+    --side-bar-bg-color: #f8f8f8;
+    --side-bar-text-color: #616161;
+    --control-text-color: #555555;
+    --item-hover-bg-color: #eaeef2;
+    --active-file-bg-color: #faecec;
+    --active-file-text-color: #da282a;
+    --active-file-border-color: #da282a;
+
+    --menu-bg: #ffffff;
+    --menu-text: #262626;
+    --menu-border: rgba(0, 0, 0, 0.12);
+    --menu-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --menu-item-hover: #faecec;
+    --menu-divider: rgba(0, 0, 0, 0.08);
+
+    /* Pie 语法高亮体系 (品红/藏青/亮绿) */
+    --cm-line: #2b2b2b;
+    --cm-keyword: #a71d5d;
+    --cm-operator: #a71d5d;
+    --cm-variable: #333333;
+    --cm-variable-2: #0086b3;
+    --cm-def: #795da3;
+    --cm-string: #183691;
+    --cm-comment: #969896;
+    --cm-tag: #63a35c;
+    --cm-builtin: #0086b3;
+    --cm-number: #0086b3;
+    --cm-cursor: #da282a;
+
+    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji";
+    --font-monospace: Consolas, Monaco, "SFMono-Regular", "Liberation Mono", Menlo, Courier, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* ==========================================================================
+       VS Code 暗黑炭黑 + Pie 柔红色彩体系
+       ========================================================================== */
+        --bg-color: #1e1e1e;
+        --text-color: #d6d6d6;
+        --text-muted: #8c8c8c;
+        --border-color: #2e2e2e;
+        --border-subtle: #383838;
+        --hr-color: #2d2424;
+
+        /* 暗黑 Pie 标题与强调色 */
+        --pie-main-1: #d86666;
+        --pie-main-2: #d86666;
+        --pie-main-3: #a34848;
+        --link-color: #d86666;
+
+        /* 暗黑 Pie 编辑区组件 */
+        --code-bg: #181818;
+        --code-inline-bg: rgba(216, 102, 102, 0.15);
+        --code-inline-text: #e58787;
+        --table-alt-bg: #191919;
+        --blockquote-bg: rgba(216, 102, 102, 0.05);
+        --select-text-bg-color: #663f3f;
+
+        /* 侧边栏与操作栏菜单 (Dark Modern) */
+        --side-bar-bg-color: #181818;
+        --side-bar-text-color: #cccccc;
+        --control-text-color: #cccccc;
+        --item-hover-bg-color: rgba(255, 255, 255, 0.08);
+        --active-file-bg-color: #2e2222;
+        --active-file-text-color: #d86666;
+        --active-file-border-color: #d86666;
+
+        --menu-bg: #252526;
+        --menu-text: #e6edf3;
+        --menu-border: rgba(255, 255, 255, 0.12);
+        --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        --menu-item-hover: rgba(216, 102, 102, 0.15);
+        --menu-divider: rgba(255, 255, 255, 0.08);
+
+        /* 暗黑 Pie 语法高亮 */
+        --cm-line: #d6d6d6;
+        --cm-keyword: rgb(189, 97, 201);
+        --cm-operator: #b67e7e;
+        --cm-variable: rgb(199, 199, 199);
+        --cm-variable-2: rgb(131, 166, 201);
+        --cm-def: rgb(123, 123, 255);
+        --cm-string: rgb(194, 104, 104);
+        --cm-comment: rgb(216, 158, 99);
+        --cm-tag: rgb(162, 207, 154);
+        --cm-builtin: rgb(169, 145, 226);
+        --cm-number: rgb(73, 190, 143);
+        --cm-cursor: #e4629a;
+    }
+}
+
+/* ==========================================================================
+   2. 基础正文排版
+   ========================================================================== */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.65;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 40px 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 1200px;
+    }
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+/* ==========================================================================
+   3. 正文超链接 (Pie 绯红色，平时无下划线，悬停单下划线)
+   ========================================================================== */
+#write a,
+#write span[md-inline='link'] a,
+#write .md-link a {
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+#write a:hover,
+#write span[md-inline='link']:hover a,
+#write .md-link:hover a {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+    border-bottom: none !important;
+}
+
+#write a:empty {
+    border: none !important;
+}
+
+#write a.md-toc-inner {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+#write a.md-toc-inner:hover {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   4. Pie 标志性标题体系
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    color: var(--text-color);
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code,
+h2 tt,
+h2 code,
+h3 tt,
+h3 code,
+h4 tt,
+h4 code,
+h5 tt,
+h5 code,
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    padding-bottom: 0.3em;
+    margin: 2.4em auto 1.2em;
+    font-size: 2.1em;
+    line-height: 1.25;
+    text-align: center;
+    border-bottom: none;
+}
+
+h1::after {
+    display: block;
+    width: 100px;
+    height: 2px;
+    margin: 0.35em auto 0;
+    content: '';
+    border-bottom: 2px dashed var(--pie-main-1);
+}
+
+h2 {
+    padding-left: 8px;
+    margin: 2em auto 1.3em;
+    font-size: 1.6em;
+    line-height: 1.4;
+    border-left: 5px solid var(--pie-main-1);
+    border-bottom: none;
+}
+
+h3 {
+    margin: 1.6em auto 1.1em;
+    font-size: 1.3em;
+    line-height: 1.43;
+}
+
+h3::before {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 8px;
+    margin-bottom: 0.18em;
+    line-height: 1.43;
+    vertical-align: middle;
+    content: '';
+    background-color: var(--pie-main-2);
+    border-radius: 50%;
+}
+
+#write>h3.md-focus::before,
+#write>h4.md-focus::before {
+    width: auto;
+    height: auto;
+    color: #fff;
+    background-color: var(--pie-main-2);
+}
+
+h4 {
+    margin-top: 1.4em;
+    font-size: 1.15em;
+}
+
+h4::before {
+    display: inline-block;
+    width: 7px;
+    height: 2.5px;
+    margin-right: 8px;
+    margin-bottom: 0.18em;
+    vertical-align: middle;
+    content: '';
+    background-color: var(--pie-main-3);
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.95em;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. 段落、引用块、表格与代码块 (Pie 个性化)
+   ========================================================================== */
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0;
+}
+
+ul,
+ol {
+    padding-left: 28px;
+}
+
+hr {
+    height: 2px;
+    margin: 24px 0;
+    background-color: var(--hr-color);
+    border: none;
+}
+
+blockquote {
+    border-left: 4px solid var(--pie-main-2);
+    padding: 8px 16px;
+    color: var(--text-muted);
+    background-color: var(--blockquote-bg);
+    border-radius: 0 4px 4px 0;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+table tr {
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: var(--table-alt-bg);
+}
+
+table th,
+table td {
+    padding: 7px 13px;
+    border: 1px solid var(--border-color);
+}
+
+table th {
+    font-weight: 600;
+}
+
+/* 行内代码 */
+code,
+tt {
+    font-family: var(--font-monospace) !important;
+    font-size: 0.88em;
+    padding: 2px 6px;
+    color: var(--code-inline-text);
+    background-color: var(--code-inline-bg);
+    border-radius: 4px;
+}
+
+/* 代码块容器 */
+.md-fences {
+    margin: 16px 0;
+    padding: 10px 14px;
+    font-family: var(--font-monospace) !important;
+    font-size: 0.9em;
+    line-height: 1.55;
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+/* ==========================================================================
+   6. 侧边栏与大纲面板
+   ========================================================================== */
+.sidebar-tabs,
+.info-panel-tab-wrapper {
+    border-bottom: none !important;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+    color: var(--side-bar-text-color);
+}
+
+.sidebar-tab-btn,
+.sidebar-tab-btn .btn-default,
+.sidebar-tab-btn span,
+#sidebar-files-menu-btn,
+.sidebar-header-btn {
+    color: var(--control-text-color) !important;
+}
+
+.outline-content {
+    padding: 4px 12px;
+}
+
+.outline-item {
+    color: var(--control-text-color) !important;
+}
+
+.outline-item:hover {
+    background-color: var(--item-hover-bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.outline-item.outline-item-active {
+    background-color: var(--active-file-bg-color) !important;
+    color: var(--active-file-text-color) !important;
+}
+
+.sidebar-null-outline-info {
+    color: var(--control-text-color) !important;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* 操作栏弹出菜单容器 */
+#sidebar-files-menu,
+.dropdown-menu,
+.context-menu {
+    background-color: var(--menu-bg) !important;
+    border: 1px solid var(--menu-border) !important;
+    box-shadow: var(--menu-shadow) !important;
+    border-radius: 8px !important;
+}
+
+#sidebar-files-menu,
+#sidebar-files-menu *,
+.dropdown-menu,
+.dropdown-menu *,
+.context-menu,
+.context-menu * {
+    color: var(--menu-text) !important;
+}
+
+#sidebar-files-menu li,
+#sidebar-files-menu li a,
+.dropdown-menu li,
+.dropdown-menu li a,
+.context-menu li,
+.context-menu li a {
+    text-decoration: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+#sidebar-files-menu li a:hover,
+#sidebar-files-menu li:hover,
+.dropdown-menu li a:hover,
+.dropdown-menu li:hover,
+.context-menu li a:hover,
+.context-menu li:hover {
+    background-color: var(--menu-item-hover) !important;
+}
+
+.dropdown-menu .divider,
+#sidebar-files-menu .divider {
+    height: 1px !important;
+    background-color: var(--menu-divider) !important;
+    border: none !important;
+}
+
+/* 侧边栏文件激活态 */
+.file-tree-node.active>.file-node-background {
+    background-color: var(--active-file-bg-color);
+    border-left: 3px solid var(--active-file-border-color);
+}
+
+.file-list-item.active {
+    background-color: var(--active-file-bg-color);
+    color: var(--active-file-text-color);
+}
+
+/* 侧边栏底栏与触发按钮 */
+.sidebar-footer {
+    border-top: 1px solid var(--menu-divider) !important;
+    background: transparent !important;
+}
+
+#sidebar-files-menu-btn,
+.sidebar-footer-item,
+#recent-file-panel-action-btn,
+.sidebar-footer-btn,
+.footer-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: var(--control-text-color) !important;
+}
+
+#sidebar-files-menu-btn:hover,
+.sidebar-footer-item:hover,
+#recent-file-panel-action-btn:hover,
+.sidebar-footer-btn:hover {
+    background-color: var(--item-hover-bg-color) !important;
+}
+
+#typora-quick-open {
+    border: 1px solid var(--border-color);
+    background-color: var(--code-bg);
+}
+
+/* ==========================================================================
+   7. 安全穿透隐藏 .assets 节点
+   ========================================================================== */
+.file-tree-node[data-name=".assets"],
+.file-tree-node[data-name^="."],
+.file-tree-node[data-path*="/.assets"],
+.file-tree-node[data-path*="\\.assets"],
+.file-list-item[data-name=".assets"],
+.file-list-item[data-name^="."],
+.file-list-item[data-path*="/.assets"],
+.file-list-item[data-path*="\\.assets"],
+.file-library-node[data-path*="/.assets"],
+.file-library-node[data-path*="\\.assets"],
+[data-name=".assets"] {
+    display: none !important;
+}
+
+::selection {
+    background-color: var(--select-text-bg-color) !important;
+}
+
+/* ==========================================================================
+   8. 语法高亮
+   ========================================================================== */
+pre.CodeMirror-line {
+    color: var(--cm-line) !important;
+}
+
+.cm-keyword {
+    color: var(--cm-keyword) !important;
+    font-weight: bold;
+}
+
+.cm-operator {
+    color: var(--cm-operator) !important;
+}
+
+.cm-variable {
+    color: var(--cm-variable) !important;
+}
+
+.cm-variable-2 {
+    color: var(--cm-variable-2) !important;
+}
+
+.cm-def {
+    color: var(--cm-def) !important;
+}
+
+.cm-string {
+    color: var(--cm-string) !important;
+}
+
+.cm-comment {
+    color: var(--cm-comment) !important;
+    font-style: italic;
+}
+
+.cm-tag {
+    color: var(--cm-tag) !important;
+}
+
+.cm-builtin {
+    color: var(--cm-builtin) !important;
+}
+
+.cm-number {
+    color: var(--cm-number) !important;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 2px solid var(--cm-cursor);
+}
+
+/* ==========================================================================
+   9. 暗黑模式穿透规则
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+
+    .sidebar-tabs,
+    .sidebar-tabs *,
+    .outline-item,
+    .outline-item *,
+    .sidebar-tab-btn,
+    .sidebar-tab-btn * {
+        color: #cccccc !important;
+    }
+
+    .outline-item:hover,
+    .outline-item:hover * {
+        color: #ffffff !important;
+    }
+
+    .outline-item.outline-item-active,
+    .outline-item.outline-item-active * {
+        color: #ffffff !important;
+    }
+
+    .sidebar-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: transparent !important;
+    }
+
+    #sidebar-files-menu-btn,
+    .sidebar-footer-item,
+    #recent-file-panel-action-btn,
+    .sidebar-footer-btn,
+    .footer-btn {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        color: #cccccc !important;
+    }
+
+    #sidebar-files-menu-btn:hover,
+    .sidebar-footer-item:hover {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+    }
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
